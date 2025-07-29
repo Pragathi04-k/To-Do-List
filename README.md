@@ -17,16 +17,16 @@ This is a responsive **To-Do List web application** built using , **Express.js**
 
 ## 📁 Tech Stack
 
-- **Backend**: Node.js, Express.js
+- **Backend**: Express.js
 - **Templating Engine**: EJS
-- **Frontend**: HTML, CSS, Bootstrap
-- **Deployment**: Render
+- **Frontend**: HTML, CSS
 
 ---
 
 ## 📸 Screenshots
 
-> _Add a screenshot of your UI here if you'd like!_
+<img width="1374" height="805" alt="image" src="https://github.com/user-attachments/assets/24df30cc-b910-41d6-8778-1366279fa593" />
+
 
 ---
 
