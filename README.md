@@ -43,6 +43,6 @@ cd To-Do-List
 npm install
 
 # 4. Start the server
-node app.js
+node index.js
 
 # App will be running at http://localhost:8000
