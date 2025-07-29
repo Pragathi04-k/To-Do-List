@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo App</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <h1>My Todo List</h1>
+
+  <div class="box">
+    <form action="/" method="POST" onsubmit="return validateForm()">
+      <input type="text" name="ele1" placeholder="Enter task" id="taskInput">
+      <select name="priority">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+      <button type="submit">+</button>
+    </form>
+
+    <div class="filter">
+      <label>Filter:</label>
+      <select onchange="location = this.value;">
+        <option value="/?priority=All" <%= filter==="All"?"selected":"" %>>All</option>
+        <option value="/?priority=High" <%= filter==="High"?"selected":"" %>>High</option>
+        <option value="/?priority=Medium" <%= filter==="Medium"?"selected":"" %>>Medium</option>
+        <option value="/?priority=Low" <%= filter==="Low"?"selected":"" %>>Low</option>
+      </select>
+    </div>
+
+    <% items.forEach((item, index) => { %>
+      <div class="item">
+        <input type="checkbox" class="task-check" onchange="toggleStrike(this)">
+        <p class="task-text"><%= item.text %> - <small><%= item.priority %></small></p>
+        <form action="/delete" method="POST" class="delete-form">
+          <input type="hidden" name="index" value="<%= index %>">
+          <button type="submit" class="delete-btn">🗑️</button>
+        </form>
+      </div>
+    <% }) %>
+  </div>
+
+  <script>
+    function toggleStrike(checkbox) {
+      checkbox.nextElementSibling.classList.toggle("completed");
+    }
+
+    function validateForm() {
+      const input = document.getElementById("taskInput");
+      if (input.value.trim() === "") {
+        alert("Please enter a task.");
+        return false;
+      }
+      return true;
+    }
+  </script>
+
+</body>
+</html>
